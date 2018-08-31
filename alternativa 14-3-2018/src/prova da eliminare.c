@@ -47,6 +47,7 @@ int main(void) {
 		stampa_vettore_studenti(vet,n);
 
 
+
 	}
 	system("pause");
 	return EXIT_SUCCESS;
@@ -65,16 +66,16 @@ void sposta_contenuto_file(FILE *fp,vettore_studente vet[]){
 int calcola_dimensione_vettore(FILE *fp){
 
 	int n;
-	char nome[21];
-	char cognome[21];
-	float media;
+	char c;
 
-
-	n=0;
-	while(fscanf(fp,"%s%s%f",nome,cognome,&media)!=EOF){
-		n=n+1;
+	n=1;
+	while(!feof(fp)){
+		if((c=fgetc(fp))=='\n'){
+			n=n+1;
+		}
 	}
 	return n;
+
 }
 
 void scambia_elementi_vettore(vettore_studente vet[],int i,int j){
