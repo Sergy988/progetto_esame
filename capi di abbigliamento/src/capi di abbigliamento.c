@@ -40,8 +40,7 @@ void aggiornamento_prezzi(FILE *capi,FILE *prezzi,FILE *capi_aggionati){
 	char codice[21];
 	char descrizione[21];
 	char composizione[21];
-	int taglio;
-	float prezzo;
+	int taglio;	float prezzo;
 
 	char codice_2[21];
 	float prezzo_aggiornato;
@@ -55,11 +54,6 @@ void aggiornamento_prezzi(FILE *capi,FILE *prezzi,FILE *capi_aggionati){
 			printf("%s %s %s %d %1.2f\n",codice,descrizione,composizione,taglio,prezzo_aggiornato);
 		}else{
 			printf("errore in questo codice %s\n",codice_2);
-			while(strcmp(codice,codice_2)!=0){
-				fscanf(prezzi,"%s%f",codice_2,&prezzo_aggiornato);
-			}
-			printf("%s %s %s %d %1.2f\n",codice,descrizione,composizione,taglio,prezzo_aggiornato);
-			fprintf(capi_aggionati,"%s %s %s %d %1.2f",codice,descrizione,composizione,taglio,prezzo);
 		}
 	}
 }
